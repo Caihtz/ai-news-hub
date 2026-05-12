@@ -826,9 +826,9 @@ if __name__ == '__main__':
         conn.close()
         print(f"  翻译完成: {count} 条")
     elif len(sys.argv) > 1 and sys.argv[1] == 'api':
-        app.run(port=3001, debug=True)
+        app.run(host='0.0.0.0', port=3001, debug=True)
     else:
         collector = Collector(translator=translator)
         collector.run()
         print("\n启动API服务...")
-        app.run(port=3001, debug=True)
+        app.run(host='0.0.0.0', port=3001, debug=True)
