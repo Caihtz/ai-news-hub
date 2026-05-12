@@ -1,0 +1,28 @@
+# AI News Hub - 定时任务配置示例
+# ============================
+#
+# 将此文件保存为 crontab.txt，然后在Linux/Mac上执行:
+#   crontab crontab.txt
+#
+# 或直接运行: crontab -e 添加以下行
+#
+# ============================
+
+# 每小时执行一次数据采集 (建议时间: 每个小时的第5分钟)
+5 * * * * cd /path/to/news/backend && /usr/bin/python3 collector.py collect >> /var/log/ai-news-collector.log 2>&1
+
+# 每天凌晨2点执行一次完整采集 (避开RSS源高峰期)
+0 2 * * * cd /path/to/news/backend && /usr/bin/python3 collector.py collect >> /var/log/ai-news-collector.log 2>&1
+
+# ============================
+# 说明:
+# - 采集前会自动清理7天前的数据
+# - 日志文件保存在 /var/log/ai-news-collector.log
+# - 请将 /path/to/news 替换为实际路径
+# ============================
+
+# 查看日志
+# tail -f /var/log/ai-news-collector.log
+
+# 停止定时任务
+# crontab -r  (危险! 会删除所有定时任务)

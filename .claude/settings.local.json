@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"F:/Claude code项目/新闻\" 2>/dev/null || echo \"目录不存在或为空\")",
+      "Read(//f/Claude code项目/新闻/**)",
+      "Bash(npm install *)",
+      "Bash(npm uninstall *)"
+    ]
+  }
+}
